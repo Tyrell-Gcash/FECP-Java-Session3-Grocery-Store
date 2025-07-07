@@ -41,7 +41,7 @@ public class Main {
 
                     System.out.println("");
 
-                    inventory.addProduct(productAddName, productQuantity);
+                    System.out.println(inventory.addProduct(productAddName, productQuantity));
                     break;
                 case 3:
 
