@@ -13,7 +13,7 @@ public class ProductCatalogue {
     public String addProduct(String productName, Integer productQuantity){
 
         if(productCatalogue.containsKey(productName)){
-            return "Product previously added" + "\n";
+            return "Product previously added!" + "\n";
         }
 
         if(productQuantity < 0){
@@ -22,14 +22,14 @@ public class ProductCatalogue {
 
         productCatalogue.put(productName, productQuantity);
 
-        return productName + " added" + "\n";
+        return productName + " added!" + "\n";
     }
 
     public String checkProduct(String productName){
 
         //https://stackoverflow.com/questions/15730134/opposite-of-contains-does-not-contain
         if(!productCatalogue.containsKey(productName)){
-            return "Product key invalid" + "\n";
+            return "Product key invalid!" + "\n";
         }
 
         return productName + " is in stock: " + productCatalogue.get(productName).toString() + "\n";
@@ -39,7 +39,7 @@ public class ProductCatalogue {
 
         //https://stackoverflow.com/questions/15730134/opposite-of-contains-does-not-contain
         if(!productCatalogue.containsKey(productName)){
-            return "Product key invalid" + "\n";
+            return "Product key invalid!" + "\n";
         }
 
         if(newProductQuantity < 0){
@@ -48,21 +48,21 @@ public class ProductCatalogue {
 
         productCatalogue.replace(productName, newProductQuantity);
 
-        return productName + " updated!" + "\n" + "\n";
+        return productName + " updated!" + "\n";
     }
 
     public String removeProduct(String productName){
 
         //https://stackoverflow.com/questions/15730134/opposite-of-contains-does-not-contain
         if(!productCatalogue.containsKey(productName)){
-            return "Product key invalid" + "\n";
+            return "Product key invalid!" + "\n";
         }
         if(productCatalogue.containsKey(productName)){
-            return "Product key invalid" + "\n";
+            return "Product key invalid!" + "\n";
         }
         productCatalogue.remove(productName);
 
-        return productName + " removed" + "\n";
+        return productName + " removed!" + "\n";
     }
 
     public void viewInventory(){
