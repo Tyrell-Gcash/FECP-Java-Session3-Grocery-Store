@@ -35,10 +35,6 @@ public class Main {
                     System.out.printf("Enter Quantity: ");
                     int productQuantity = scanner.nextInt();
 
-                    if(productQuantity < 0){
-                        System.out.println("Quantity must be more than zero!");
-                    }
-
                     System.out.println("");
 
                     System.out.println(inventory.addProduct(productAddName, productQuantity));
@@ -48,11 +44,6 @@ public class Main {
                     System.out.printf("\n" + "Enter product name to check: ");
                     String productCheckName = scanner.next();
 
-                    if(inventory.hasProduct(productCheckName) == false){
-                        System.out.println("No such product!" + "\n");
-                        break;
-                    }
-
                     System.out.println(inventory.checkProduct(productCheckName));
 
                     break;
@@ -60,11 +51,6 @@ public class Main {
 
                     System.out.printf("\n" + "Enter product name to update: ");
                     String productUpdateName = scanner.next();
-
-                    if(inventory.hasProduct(productUpdateName) == false){
-                        System.out.println("No such product!" + "\n");
-                        break;
-                    }
 
                     System.out.printf("Enter new stock quantity: ");
                     int productUpdateQuantity = scanner.nextInt();
@@ -76,11 +62,6 @@ public class Main {
 
                     System.out.printf("\n" + "Enter product name to remove: ");
                     String productRemoveName = scanner.next();
-
-                    if(inventory.hasProduct(productRemoveName) == false){
-                        System.out.println("No such product!" + "\n");
-                        break;
-                    }
 
                     System.out.println(inventory.removeProduct(productRemoveName));
                     break;
