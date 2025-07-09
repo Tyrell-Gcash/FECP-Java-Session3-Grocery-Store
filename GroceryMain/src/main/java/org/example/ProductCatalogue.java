@@ -13,16 +13,17 @@ public class ProductCatalogue {
     public String addProduct(String productName, Integer productQuantity){
 
         if(productCatalogue.containsKey(productName)){
-            return "Product previously added!" + "\n";
+            this.updateProduct(productName, productQuantity);
+            return "Product previously added. " + productName + " quantity updated" + "\n";
         }
 
-        if(productQuantity < 0){
+        if(productQuantity <= 0){
             return "Quantity must be more than zero!" + "\n";
         }
 
         productCatalogue.put(productName, productQuantity);
 
-        return productName + " added!" + "\n";
+        return productName + " - " + productQuantity + " pcs added!" + "\n";
     }
 
     public String checkProduct(String productName){
@@ -42,7 +43,7 @@ public class ProductCatalogue {
             return "Product key invalid!" + "\n";
         }
 
-        if(newProductQuantity < 0){
+        if(newProductQuantity <= 0){
             return "Quantity must be more than zero!" + "\n";
         }
 

@@ -23,7 +23,7 @@ class ProductCatalogueTest {
     void setUp(){
         inventory = new ProductCatalogue(new HashMap<>());
         inventory.addProduct("Cheese",5);
-        inventory.addProduct("Milk",2);
+        inventory.addProduct("Milk",20);
         inventory.addProduct("Eggs",12);
 
         System.setOut(new PrintStream(outContent));
@@ -31,14 +31,14 @@ class ProductCatalogueTest {
 
     @Test
     void addValidProduct() {
-        String output = inventory.addProduct("Chocolate", 100);
-        assertEquals("Chocolate added!\n", output);
+        String output = inventory.addProduct("Banana", 30);
+        assertEquals("Banana - 30 pcs added!\n", output);
     }
 
     @Test
     void addExistingProductName() {
-        String output = inventory.addProduct("Cheese", 5);
-        assertEquals("Product previously added!\n", output);
+        String output = inventory.addProduct("Milk", 50);
+        assertEquals("Product previously added. Milk quantity updated\n", output);
     }
 
     @Test
@@ -49,8 +49,8 @@ class ProductCatalogueTest {
 
     @Test
     void checkExistingProduct() {
-        String output = inventory.checkProduct("Cheese");
-        assertEquals("Cheese is in stock: 5\n",output);
+        String output = inventory.checkProduct("Milk");
+        assertEquals("Milk is in stock: 20\n",output);
     }
 
     @Test
@@ -93,7 +93,7 @@ class ProductCatalogueTest {
     void viewInventory() {
         //https://stackoverflow.com/questions/1119385/junit-test-for-system-out-println
         inventory.viewInventory();
-        assertEquals("Current Inventory:\nCheese - 5 pcs\nEggs - 12 pcs\nMilk - 2 pcs", outContent.toString().trim());
+        assertEquals("Current Inventory:\nCheese - 5 pcs\nEggs - 12 pcs\nMilk - 20 pcs", outContent.toString().trim());
     }
 
     @AfterEach
