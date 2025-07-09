@@ -25,6 +25,8 @@ class ProductCatalogueTest {
         inventory.addProduct("Cheese",5);
         inventory.addProduct("Milk",20);
         inventory.addProduct("Eggs",12);
+        inventory.addProduct("Bread",1);
+
 
         System.setOut(new PrintStream(outContent));
     }
@@ -55,20 +57,20 @@ class ProductCatalogueTest {
 
     @Test
     void checkNonExistingProduct() {
-        String output = inventory.checkProduct("Soju");
-        assertEquals("Product key invalid!\n",output);
+        String output = inventory.checkProduct("Ice Cream");
+        assertEquals("Product not found.\n",output);
     }
 
     @Test
     void updateExistingProduct() {
-        String output = inventory.updateProduct("Cheese", 10);
-        assertEquals("Cheese updated!\n",output);
+        String output = inventory.updateProduct("Bread", 25);
+        assertEquals("Bread quantity updated to: 25\n",output);
     }
 
     @Test
     void updateNonExistingProduct() {
         String output = inventory.updateProduct("Soju", 10);
-        assertEquals("Product key invalid!\n",output);
+        assertEquals("Product not found.\n",output);
     }
 
     @Test
@@ -85,15 +87,15 @@ class ProductCatalogueTest {
 
     @Test
     void removeNonExistingProduct() {
-        String output = inventory.removeProduct("Soju");
-        assertEquals("Product key invalid!\n",output);
+        String output = inventory.removeProduct("Tofu");
+        assertEquals("Product not found.\n",output);
     }
 
     @Test
     void viewInventory() {
         //https://stackoverflow.com/questions/1119385/junit-test-for-system-out-println
         inventory.viewInventory();
-        assertEquals("Current Inventory:\nCheese - 5 pcs\nEggs - 12 pcs\nMilk - 20 pcs", outContent.toString().trim());
+        assertEquals("Current Inventory:\nCheese - 5 pcs\nEggs - 12 pcs\nMilk - 20 pcs\nBread - 1 pcs", outContent.toString().trim());
     }
 
     @AfterEach

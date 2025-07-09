@@ -30,7 +30,7 @@ public class ProductCatalogue {
 
         //https://stackoverflow.com/questions/15730134/opposite-of-contains-does-not-contain
         if(!productCatalogue.containsKey(productName)){
-            return "Product key invalid!" + "\n";
+            return "Product not found." + "\n";
         }
 
         return productName + " is in stock: " + productCatalogue.get(productName).toString() + "\n";
@@ -40,7 +40,7 @@ public class ProductCatalogue {
 
         //https://stackoverflow.com/questions/15730134/opposite-of-contains-does-not-contain
         if(!productCatalogue.containsKey(productName)){
-            return "Product key invalid!" + "\n";
+            return "Product not found." + "\n";
         }
 
         if(newProductQuantity <= 0){
@@ -49,14 +49,14 @@ public class ProductCatalogue {
 
         productCatalogue.replace(productName, newProductQuantity);
 
-        return productName + " updated!" + "\n";
+        return productName + " quantity updated to: " + newProductQuantity + "\n";
     }
 
     public String removeProduct(String productName){
 
         //https://stackoverflow.com/questions/15730134/opposite-of-contains-does-not-contain
         if(!productCatalogue.containsKey(productName)){
-            return "Product key invalid!" + "\n";
+            return "Product not found." + "\n";
         }
 
         productCatalogue.remove(productName);
