@@ -64,12 +64,13 @@ class ProductCatalogueTest {
     @Test
     void updateExistingProduct() {
         String output = inventory.updateProduct("Bread", 25);
-        assertEquals("Bread quantity updated to: 25\n",output);
+        assertEquals("Bread quantity updated to: 25\n", output);
+        assertEquals("25 pcs\n", inventory.getQuantity("Bread"));
     }
 
     @Test
     void updateNonExistingProduct() {
-        String output = inventory.updateProduct("Soju", 10);
+        String output = inventory.updateProduct("Tofu", 10);
         assertEquals("Product not found.\n",output);
     }
 
@@ -81,13 +82,26 @@ class ProductCatalogueTest {
 
     @Test
     void removeExistingProduct() {
-        String output = inventory.removeProduct("Cheese");
-        assertEquals("Cheese removed!\n",output);
+        String output = inventory.removeProduct("Eggs");
+        assertEquals("Eggs removed!\n",output);
+        assertEquals("Product not found.\n" , inventory.checkProduct("Eggs"));
     }
 
     @Test
     void removeNonExistingProduct() {
-        String output = inventory.removeProduct("Tofu");
+        String output = inventory.removeProduct("Pizza");
+        assertEquals("Product not found.\n",output);
+    }
+
+    @Test
+    void getQuantityOfExistingProduct() {
+        String output = inventory.getQuantity("Cheese");
+        assertEquals("5 pcs\n",output);
+    }
+
+    @Test
+    void getQuantityOfNonExistingProduct() {
+        String output = inventory.getQuantity("Tofu");
         assertEquals("Product not found.\n",output);
     }
 

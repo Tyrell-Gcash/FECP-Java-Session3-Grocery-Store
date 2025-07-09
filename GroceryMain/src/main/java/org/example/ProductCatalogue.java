@@ -64,6 +64,15 @@ public class ProductCatalogue {
         return productName + " removed!" + "\n";
     }
 
+    public String getQuantity(String productName){
+
+        if(!productCatalogue.containsKey(productName)) {
+            return "Product not found." + "\n";
+        }
+
+        return productCatalogue.get(productName).toString() + " pcs" + "\n";
+    }
+
     public void viewInventory(){
         System.out.println("\nCurrent Inventory:");
         //https://stackoverflow.com/questions/5920135/printing-hashmap-in-java
