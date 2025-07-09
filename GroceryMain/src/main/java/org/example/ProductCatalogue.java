@@ -57,17 +57,17 @@ public class ProductCatalogue {
         if(!productCatalogue.containsKey(productName)){
             return "Product key invalid!" + "\n";
         }
-        if(productCatalogue.containsKey(productName)){
-            return "Product key invalid!" + "\n";
-        }
+
         productCatalogue.remove(productName);
 
         return productName + " removed!" + "\n";
     }
 
     public void viewInventory(){
+        System.out.println("\nCurrent Inventory:");
         //https://stackoverflow.com/questions/5920135/printing-hashmap-in-java
-        productCatalogue.forEach((key, value) -> System.out.println("\n" + key + " " + value + "\n"));
+        productCatalogue.forEach((key, value) -> System.out.println(key + " - " + value + " pcs"));
+        System.out.println();
     }
 
 //    addProduct(Parameters)
