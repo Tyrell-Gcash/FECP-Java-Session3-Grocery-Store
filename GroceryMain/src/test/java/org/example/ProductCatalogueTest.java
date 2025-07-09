@@ -35,6 +35,7 @@ class ProductCatalogueTest {
     void addValidProduct() {
         String output = inventory.addProduct("Banana", 30);
         assertEquals("Banana - 30 pcs added!\n", output);
+        assertEquals("30 pcs\n", inventory.getQuantity("Banana"));
     }
 
     @Test
